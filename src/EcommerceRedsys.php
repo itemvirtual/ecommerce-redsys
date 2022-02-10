@@ -24,7 +24,10 @@ class EcommerceRedsys
     private $description;
     private $merchantData;
 
+    private $submitButtonName = "submit_ecommerce_redsys";
+    private $submitButtonId = "submit-ecommerce-redsys";
     private $submitButtonTitle = "Enviar";
+    private $submitButtonClass = "btn btn-primary";
 
     const TIPO_PAGO_AUTORIZACION = 0;
     const TIPO_PAGO_PREAUTORIZACION = 1;
@@ -75,7 +78,7 @@ class EcommerceRedsys
     public function createForm()
     {
         $this->createSignature();
-        $this->redsys->setAttributesSubmit('submit_ecommerce_redsys', 'submit-ecommerce-redsys', $this->submitButtonTitle);
+        $this->redsys->setAttributesSubmit($this->submitButtonName, $this->submitButtonId, $this->submitButtonTitle, '', $this->submitButtonClass);
 
         return $this->redsys->createForm();
     }
@@ -304,5 +307,37 @@ class EcommerceRedsys
         $this->submitButtonTitle = $submitButtonTitle;
         return $this;
     }
+
+    /**
+     * @param string $submitButtonName
+     * @return EcommerceRedsys
+     */
+    public function setSubmitButtonName(string $submitButtonName)
+    {
+        $this->submitButtonName = $submitButtonName;
+        return $this;
+    }
+
+    /**
+     * @param string $submitButtonId
+     * @return EcommerceRedsys
+     */
+    public function setSubmitButtonId(string $submitButtonId)
+    {
+        $this->submitButtonId = $submitButtonId;
+        return $this;
+    }
+
+    /**
+     * @param string $submitButtonClass
+     * @return EcommerceRedsys
+     */
+    public function setSubmitButtonClass(string $submitButtonClass)
+    {
+        $this->submitButtonClass = $submitButtonClass;
+        return $this;
+    }
+
+
 
 }

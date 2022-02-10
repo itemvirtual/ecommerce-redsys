@@ -67,7 +67,10 @@ $params = $EcommerceRedsys->setAmount(100)
     ->setTradeName('Your Custom Data')
     ->setTitular('Your Custom Data')
     ->setEnvironment('test')
+    ->setSubmitButtonName('Your Custom Button title')
     ->setSubmitButtonTitle('Your Custom Button title')
+    ->setSubmitButtonId('Your Custom Button title')
+    ->setSubmitButtonClass('Your Custom Button title')
     ->debugParameters();
 ```
 
