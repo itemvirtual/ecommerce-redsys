@@ -18,7 +18,7 @@ php artisan vendor:publish --provider="Itemvirtual\EcommerceRedsys\EcommerceReds
 ```
 Add this environment variable to your `.env`
 ``` bash
-ECOMMERCE_REDSYS_ENVIRONMENT=test # or production
+ECOMMERCE_REDSYS_ENVIRONMENT=test # or live
 ECOMMERCE_REDSYS_KEY="sq7HjrUOBfKmC576ILgskD5srU870gJ7"
 ECOMMERCE_REDSYS_CODE="999008881"
 ECOMMERCE_REDSYS_TERMINAL=1
@@ -79,7 +79,7 @@ $EcommerceRedsys = new EcommerceRedsys();
 $parameters = $EcommerceRedsys->getMerchantParameters($request->get('Ds_MerchantParameters'));
 $yourMerchantData = $EcommerceRedsys->getMerchantData($request->get('Ds_MerchantParameters'));
 
-// validate transaction
+// validate payment
 $isValid = $EcommerceRedsys->checkValidPayment($request->all())
 ```
 
