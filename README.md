@@ -83,7 +83,7 @@ $parameters = $EcommerceRedsys->getMerchantParameters($request->get('Ds_Merchant
 $yourMerchantData = $EcommerceRedsys->getMerchantData($request->get('Ds_MerchantParameters'));
 
 // validate payment
-$isValid = $EcommerceRedsys->checkValidPayment($request->all())
+$isValid = $EcommerceRedsys->checkValidPayment($request->all());
 ```
 
 ### Changelog
