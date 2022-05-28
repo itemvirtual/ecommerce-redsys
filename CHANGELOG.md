@@ -2,6 +2,10 @@
 
 All notable changes to `ecommerce-redsys` will be documented in this file
 
+## 1.0.3 - 2022-05-28
+
+- Add setOrder
+
 ## 1.0.2 - 2022-04-19
 
 - Thousands separator

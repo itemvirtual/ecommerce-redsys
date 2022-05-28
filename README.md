@@ -27,8 +27,8 @@ ECOMMERCE_REDSYS_LANGUAGE="001"
 ECOMMERCE_REDSYS_NOTIFICATION_URL="${APP_URL}/redsys-notification-url"
 ECOMMERCE_REDSYS_URL_OK="${APP_URL}/redsys-ok-url"
 ECOMMERCE_REDSYS_URL_KO="${APP_URL}/redsys-ko-url"
-ECOMMERCE_REDSYS_TRADE_NAME="My Ecommerce"
-ECOMMERCE_REDSYS_TITULAR="Your name"
+ECOMMERCE_REDSYS_TRADE_NAME="${APP_NAME}"
+ECOMMERCE_REDSYS_TITULAR="Your company name"
 ```
 Add your `ECOMMERCE_REDSYS_NOTIFICATION_URL` to your `VerifyCsrfToken` middleware
 ```php
@@ -49,10 +49,11 @@ $redsysForm = $EcommerceRedsys->setAmount(100)
     ->setSubmitButtonTitle('Pay button text')
     ->createForm();
 ```
-To debug parameters
+Available methods
 ```php
 $EcommerceRedsys = new EcommerceRedsys();
 $params = $EcommerceRedsys->setAmount(100)
+    ->setOrder(time())
     ->setMerchantData('YourMerchantData')
     ->setDescription('Purchase title')
     ->setMerchantcode('Your Custom Data')

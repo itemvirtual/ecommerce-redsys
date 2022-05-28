@@ -10,6 +10,7 @@ class EcommerceRedsys
     private $redsys;
     private $environment;
     private $amount;
+    private $order;
     private $merchantCode;
     private $currency;
     private $language;
@@ -75,6 +76,11 @@ class EcommerceRedsys
         $this->redsys->setMerchantSignature($signature);
     }
 
+    /**
+     * Get the Redsys Form
+     *
+     * @return mixed
+     */
     public function createForm()
     {
         $this->createSignature();
@@ -83,6 +89,11 @@ class EcommerceRedsys
         return $this->redsys->createForm();
     }
 
+    /**
+     * View Redsys parameters before encrypting the form data
+     *
+     * @return mixed
+     */
     public function debugParameters()
     {
         $parameters = $this->redsys->getParameters();
@@ -93,6 +104,10 @@ class EcommerceRedsys
 
     // *********************************************************************************** TPV RESPONSE
 
+    /**
+     * @param $Ds_MerchantParameters
+     * @return null
+     */
     public function getMerchantParameters($Ds_MerchantParameters)
     {
         try {
@@ -104,6 +119,10 @@ class EcommerceRedsys
         return null;
     }
 
+    /**
+     * @param $Ds_MerchantParameters
+     * @return mixed|null
+     */
     public function getMerchantData($Ds_MerchantParameters)
     {
         try {
@@ -117,6 +136,10 @@ class EcommerceRedsys
         return null;
     }
 
+    /**
+     * @param $Ds_MerchantParameters
+     * @return int|mixed
+     */
     public function getDsResponse($Ds_MerchantParameters)
     {
         try {
@@ -130,7 +153,12 @@ class EcommerceRedsys
         return 99999;
     }
 
-
+    /**
+     * Check if is a valid payment response
+     *
+     * @param $post
+     * @return bool
+     */
     public function checkValidPayment($post)
     {
         $key = config('ecommerce-redsys.parameters.' . config('ecommerce-redsys.environment') . '.key');
@@ -145,6 +173,16 @@ class EcommerceRedsys
     }
 
     // *********************************************************************************** SETTERS
+
+    /**
+     * @param mixed $order
+     * @return EcommerceRedsys
+     */
+    public function setOrder($order)
+    {
+        $this->redsys->setOrder($order);
+        return $this;
+    }
 
     /**
      * @param mixed $environment
@@ -297,7 +335,6 @@ class EcommerceRedsys
         return $this;
     }
 
-
     /**
      * @param string $submitButtonTitle
      * @return EcommerceRedsys
@@ -337,7 +374,5 @@ class EcommerceRedsys
         $this->submitButtonClass = $submitButtonClass;
         return $this;
     }
-
-
 
 }
