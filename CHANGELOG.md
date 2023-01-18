@@ -2,6 +2,10 @@
 
 All notable changes to `ecommerce-redsys` will be documented in this file
 
+## 1.1.0 - 2023-01-18
+
+- Add laravel 9 support
+
 ## 1.0.3 - 2022-05-28
 
 - Add setOrder

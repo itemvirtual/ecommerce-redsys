@@ -30,7 +30,7 @@ ECOMMERCE_REDSYS_URL_KO="${APP_URL}/redsys-ko-url"
 ECOMMERCE_REDSYS_TRADE_NAME="${APP_NAME}"
 ECOMMERCE_REDSYS_TITULAR="Your company name"
 ```
-Add your `ECOMMERCE_REDSYS_NOTIFICATION_URL` to your `VerifyCsrfToken` middleware
+Add your `ECOMMERCE_REDSYS_NOTIFICATION_URL` to your `app/Http/Middleware/VerifyCsrfToken` middleware
 ```php
 protected $except = [
     'redsys-notification-url'
